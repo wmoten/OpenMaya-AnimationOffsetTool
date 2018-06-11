@@ -1,1 +1,1 @@
-{"coolCamera": ["mySpecialCamera"]}
+{"cam": ["FCTP_nodeName", "RX", "RY", "Tilt", "Pedestal", "Dolly", "Pan", "CamFitPercent", "fitCamToPropVersion", "melCommand"]}

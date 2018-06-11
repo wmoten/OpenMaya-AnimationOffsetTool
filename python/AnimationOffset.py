@@ -1,13 +1,14 @@
 import os
 import json
-import maya.api.OpenMaya as OM
-import maya.api.OpenMayaAnim as OMA
+import maya.api.OpenMaya as om
+import maya.api.OpenMayaAnim as oma
 
 class AnimOffset(object):
 
     def __init__(self):
+        super(AnimOffset, self).__init__()
         self.keydict = {}
-        self.offsetableObjects = []
+        self.offsetAbleObjects = []
         self.mfnDepList = []
         #{name:[list, of, open, maya, anim, curves]}
 
@@ -16,14 +17,14 @@ class AnimOffset(object):
         """
         :return: self.mfnDepList
         """
-        selectionList= OM.MGlobal.getActiveSelectionList()
+        selectionList= om.MGlobal.getActiveSelectionList()
         if selectionList.length()>0:
 
-            iterator = OM.MItSelectionList(selectionList, OM.MFn.kDagNode)
+            iterator = om.MItSelectionList(selectionList, om.MFn.kDagNode)
 
             while not iterator.isDone():
-                #iterator.getDependNode() returns mobj. we're forcing a mfnDependency Obj
-                self.mfnDepList.append(OM.MFnDependencyNode(iterator.getDependNode()))
+                # iterator.getDependNode() returns mobj. we're forcing a mfnDependency Obj
+                self.mfnDepList.append(om.MFnDependencyNode(iterator.getDependNode()))
 
                 iterator.next()
 
@@ -37,8 +38,8 @@ class AnimOffset(object):
         """
         animCurves = []
         for connection in obj.getConnections():
-            if OMA.MAnimUtil.isAnimated(connection):
-                animCurves.append(OMA.MFnAnimCurve(connection.source()))
+            if oma.MAnimUtil.isAnimated(connection):
+                animCurves.append(oma.MFnAnimCurve(connection.source()))
 
         return animCurves
 

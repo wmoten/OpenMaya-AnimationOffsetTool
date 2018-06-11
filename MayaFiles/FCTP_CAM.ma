@@ -300,4 +300,4 @@ connectAttr "radiusDivFov.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "cam_offset_percent.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "distanceBetween1.msg" ":defaultRenderUtilityList1.u" -na;
 dataStructure -fmt "raw" -as "name=idStructure:int32=ID";
-// End of FCTP_CAM.old.ma
+// End of FCTP_CAM.ma
